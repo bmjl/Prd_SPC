@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>@ViewBag.Title - SPC</title>
+	@Styles.Render("~/Content/css")
+	@Scripts.Render("~/bundles/modernizr")
+	@Scripts.Render("~/bundles/jquery")
+	@Scripts.Render("~/bundles/bootstrap")
+</head>
+<body>
+	<div class="container body-content">
+		<ul class="title nav nav-tabs title_ul">
+			<li>@Html.ActionLink("数据设置", "Index", "SamplDatas")</li>
+			<li>@Html.ActionLink("参数设置", "Index", "Settings")</li>
+			<li>@Html.ActionLink("项目设置", "Index", "Projects")</li>
+			<li>@Html.ActionLink("机别设置", "Index", "Productions")</li>
+			<li>@Html.ActionLink("部门设置", "Index", "departments")</li>
+			<li>@Html.ActionLink("常数设置", "Index", "ControlConstants")</li>
+		</ul>
+		<table class="table table-bordered">
+			<tr>
+				<td class="col-lg-2"><div>@Html.Partial("~/Views/Home/Left.cshtml")</div></td>
+				<td class="col-lg-8">
+					<div>
+						@RenderBody()
+					</div>
+				</td>
+			</tr>
+		</table>
+		<footer>
+			<p>&copy; @DateTime.Now.Year - 我的 程序</p>
+		</footer>
+	</div>
+
+	
+	@RenderSection("scripts", required: false)
+</body>
+</html>

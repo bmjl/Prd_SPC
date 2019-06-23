@@ -1,0 +1,58 @@
+﻿@model SPC.Models.Productions
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Production</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.depId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.depId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.is_delete)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.is_delete)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.create_time)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.create_time)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.create_user)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.create_user)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

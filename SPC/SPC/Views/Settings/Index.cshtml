@@ -1,0 +1,87 @@
+﻿@model IEnumerable<SPC.Models.Settings>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.project_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Group_Num)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Group_Total)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UCL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LCL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sample)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.is_delete)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.create_time)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.create_user)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.project_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Group_Num)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Group_Total)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UCL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LCL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sample)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.is_delete)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.create_time)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.create_user)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

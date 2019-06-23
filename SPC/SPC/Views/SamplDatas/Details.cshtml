@@ -1,0 +1,66 @@
+﻿@model SPC.Models.SamplDatas
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>SamplData</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Set_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Set_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ArrayIindex)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ArrayIindex)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ArrayNUm)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ArrayNUm)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.is_delete)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.is_delete)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.create_time)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.create_time)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.create_user)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.create_user)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

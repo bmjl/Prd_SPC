@@ -1,0 +1,15 @@
+﻿
+@{
+	ViewBag.Title = "Left";
+}
+
+<h2>@ViewBag.Data</h2>
+<ul class="left nav nav-tabs title_ul">
+	<!--<li class="">@Html.ActionLink("X-R控制图", "xr", "Home")</li>
+	<li class="">@Html.ActionLink("X-About", "About", "Home")</li>
+	<li class="">@Html.ActionLink("X-Contact", "Contact", "Home")</li>>-->
+	<li class="">@Html.ActionLink("X-R控制图", "Index", "Home")</li>
+</ul>
+<div id="content"></div>
+<!--<script src="~/Scripts/left/left.js"></script>-->
+@Scripts.Render("~/Scripts/left/left.js")
