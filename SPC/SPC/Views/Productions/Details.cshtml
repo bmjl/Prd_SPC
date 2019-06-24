@@ -3,12 +3,7 @@
 @{
     ViewBag.Title = "Details";
 }
-
-<h2>Details</h2>
-
 <div>
-    <h4>Production</h4>
-    <hr />
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.Name)
@@ -19,18 +14,18 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.depId)
+            @Html.DisplayNameFor(model => model.DepName)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.depId)
+            @Html.DisplayFor(model => model.DepName)
         </dd>
 
-        <dt>
+        <dt class="hidden">
             @Html.DisplayNameFor(model => model.is_delete)
         </dt>
 
-        <dd>
+        <dd class="hidden">
             @Html.DisplayFor(model => model.is_delete)
         </dd>
 
@@ -42,17 +37,17 @@
             @Html.DisplayFor(model => model.create_time)
         </dd>
 
-        <dt>
+        <dt class="hidden">
             @Html.DisplayNameFor(model => model.create_user)
         </dt>
 
-        <dd>
+        <dd class="hidden">
             @Html.DisplayFor(model => model.create_user)
         </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Back to List", "Index")
+	@Html.ActionLink("编辑", "Edit", new { id = Model.ID }, new { @class = "btn btn-default" }) |
+	@Html.ActionLink("返回列表", "Index", null, new { @class = "btn btn-default" })
 </p>

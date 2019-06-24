@@ -10,12 +10,14 @@ namespace SPC.Models
     public partial class Productions
     {
         public int ID { get; set; }
-		[DisplayName("名称")]
+		[DisplayName("机别名称")]
 		public string Name { get; set; }
 		[DisplayName("部门名称")]
 		[NotMapped]
 		public string DepName { get; set; }
-        public int depId { get; set; }
+
+		[DisplayName("部门ID")]
+		public int depId { get; set; }
 
         public int? is_delete { get; set; }
 		[DisplayName("时间")]

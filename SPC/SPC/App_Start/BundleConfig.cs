@@ -10,7 +10,8 @@ namespace SPC
 		{
 			bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
 						"~/Scripts/jquery-{version}.js",
-						"~/Scripts/layout/layout.js"));
+						"~/Scripts/layout/layout.js",
+						"~/Scripts/layout/select.js"));
 
 			bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
 						"~/Scripts/jquery.validate*"));

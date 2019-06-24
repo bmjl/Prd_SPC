@@ -17,7 +17,13 @@ namespace SPC.Controllers
         // GET: Projects
         public ActionResult Index()
         {
-            return View(db.Projects.ToList());
+			var pjts = db.Projects.ToList();
+			foreach (var pjt in pjts)
+			{
+				Productions productions = db.Productions.Find(pjt.prd_id);
+				pjt.prd_Name = productions.Name;
+			}
+			return View(pjts);
         }
 
         // GET: Projects/Details/5
@@ -28,7 +34,9 @@ namespace SPC.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Projects projects = db.Projects.Find(id);
-            if (projects == null)
+			Productions productions = db.Productions.Find(projects.prd_id);
+			projects.prd_Name = productions.Name;
+			if (projects == null)
             {
                 return HttpNotFound();
             }
@@ -48,7 +56,9 @@ namespace SPC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ID,prd_id,Name,ControlItems,Unit,is_delete,create_time,create_user")] Projects projects)
         {
-            if (ModelState.IsValid)
+			projects.create_time = DateTime.Now;
+			projects.is_delete = 0;
+			if (ModelState.IsValid)
             {
                 db.Projects.Add(projects);
                 db.SaveChanges();

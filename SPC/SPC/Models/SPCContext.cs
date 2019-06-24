@@ -21,7 +21,7 @@ namespace SPC.Models
 
 		public System.Data.Entity.DbSet<SPC.Models.ControlConstants> ControlConstants { get; set; }
 
-		public System.Data.Entity.DbSet<SPC.Models.departments> departments { get; set; }
+		public System.Data.Entity.DbSet<SPC.Models.Departments> departments { get; set; }
 
 		public System.Data.Entity.DbSet<SPC.Models.Productions> Productions { get; set; }
 

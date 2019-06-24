@@ -17,7 +17,13 @@ namespace SPC.Controllers
         // GET: Settings
         public ActionResult Index()
         {
-            return View(db.Settings.ToList());
+			var sets = db.Settings.ToList();
+			foreach (var set in sets)
+			{
+				Projects projects = db.Projects.Find(set.project_id);
+				set.project_Name = projects.Name;
+			}
+			return View(sets);
         }
 
         // GET: Settings/Details/5
@@ -28,7 +34,10 @@ namespace SPC.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Settings settings = db.Settings.Find(id);
-            if (settings == null)
+
+			Projects projects = db.Projects.Find(settings.project_id);
+			settings.project_Name = projects.Name;
+			if (settings == null)
             {
                 return HttpNotFound();
             }
@@ -48,7 +57,9 @@ namespace SPC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ID,project_id,Group_Num,Group_Total,UCL,CL,LCL,Sample,is_delete,create_time,create_user")] Settings settings)
         {
-            if (ModelState.IsValid)
+			settings.create_time = DateTime.Now;
+			settings.is_delete = 0;
+			if (ModelState.IsValid)
             {
                 db.Settings.Add(settings);
                 db.SaveChanges();

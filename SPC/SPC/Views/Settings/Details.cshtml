@@ -1,14 +1,10 @@
 ﻿@model SPC.Models.Settings
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "查看";
 }
 
-<h2>Details</h2>
-
 <div>
-    <h4>Setting</h4>
-    <hr />
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.project_id)
@@ -93,6 +89,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Back to List", "Index")
+	@Html.ActionLink("编辑", "Edit", new { id = Model.ID }) |
+	@Html.ActionLink("返回列表", "Index", null, new { @class = "btn btn-default" })
 </p>

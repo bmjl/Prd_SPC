@@ -1,72 +1,75 @@
 ﻿@model SPC.Models.Productions
-
 @{
-    ViewBag.Title = "Create";
+	ViewBag.Title = "新增";
 }
 
-<h2>Create</h2>
-
-
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Production</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
-            </div>
-        </div>
+	@Html.AntiForgeryToken()
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.depId, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.depId, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.depId, "", new { @class = "text-danger" })
-            </div>
-        </div>
+<div class="form-horizontal">
+	@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+	<div class="form-group">
+		@Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+		<div class="col-md-10">
+			@Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+			@Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+		</div>
+	</div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.is_delete, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.is_delete, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.is_delete, "", new { @class = "text-danger" })
-            </div>
-        </div>
+	<div class="form-group">
+		@Html.LabelFor(model => model.DepName, htmlAttributes: new { @class = "control-label col-md-2" })
+		<div class="col-md-10">
+			@Html.EditorFor(model => model.DepName, new { htmlAttributes = new { @readOnly = "readOnly", @class = "form-control" } })
+			<button value="1" class="btn_select btn btn-default" data-toggle="modal" data-target="#myModal">选择</button>
+		</div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.create_time, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.create_time, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.create_time, "", new { @class = "text-danger" })
-            </div>
-        </div>
+	</div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.create_user, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.create_user, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.create_user, "", new { @class = "text-danger" })
-            </div>
-        </div>
+	<div class="form-group ">
+		@Html.LabelFor(model => model.depId, htmlAttributes: new { @class = "control-label col-md-2" })
+		<div class="col-md-10">
+			@Html.EditorFor(model => model.depId, new { htmlAttributes = new { @readOnly = "readOnly", @class = "form-control" } })
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </div>
-    </div>
+			@Html.ValidationMessageFor(model => model.depId, "", new { @class = "text-danger" })
+		</div>
+
+	</div>
+
+	<div class="form-group hidden">
+		@Html.LabelFor(model => model.is_delete, htmlAttributes: new { @class = "control-label col-md-2" })
+		<div class="col-md-10">
+			@Html.EditorFor(model => model.is_delete, new { htmlAttributes = new { @class = "form-control" } })
+			@Html.ValidationMessageFor(model => model.is_delete, "", new { @class = "text-danger" })
+		</div>
+	</div>
+
+	<div class="form-group hidden">
+		@Html.LabelFor(model => model.create_time, htmlAttributes: new { @class = "control-label col-md-2" })
+		<div class="col-md-10">
+			@Html.EditorFor(model => model.create_time, new { htmlAttributes = new { @class = "form-control" } })
+			@Html.ValidationMessageFor(model => model.create_time, "", new { @class = "text-danger" })
+		</div>
+	</div>
+
+	<div class="form-group hidden">
+		@Html.LabelFor(model => model.create_user, htmlAttributes: new { @class = "control-label col-md-2" })
+		<div class="col-md-10">
+			@Html.EditorFor(model => model.create_user, new { htmlAttributes = new { @class = "form-control" } })
+			@Html.ValidationMessageFor(model => model.create_user, "", new { @class = "text-danger" })
+		</div>
+	</div>
+
+	<div class="form-group">
+		<div class="col-md-offset-2 col-md-10">
+			<input type="submit" value="新增" class="btn btn-default" />
+			@Html.ActionLink("返回列表", "Index", null, new { @class = "btn btn-default" })
+		</div>
+	</div>
+</div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
 
 @section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
+	@Scripts.Render("~/bundles/jqueryval")
 }

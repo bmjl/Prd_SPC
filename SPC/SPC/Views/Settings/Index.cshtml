@@ -1,87 +1,88 @@
 ﻿@model IEnumerable<SPC.Models.Settings>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "列表";
 }
 
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.project_id)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Group_Num)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Group_Total)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.UCL)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CL)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LCL)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Sample)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.is_delete)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.create_time)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.create_user)
-        </th>
-        <th></th>
-    </tr>
+	<tr>
+		<th>
+			@Html.DisplayNameFor(model => model.Name)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.project_Name)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.Group_Num)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.Group_Total)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.UCL)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.CL)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.LCL)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.Sample)
+		</th>
+		<th class="hidden">
+			@Html.DisplayNameFor(model => model.is_delete)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.create_time)
+		</th>
+		<th class="hidden">
+			@Html.DisplayNameFor(model => model.create_user)
+		</th>
+		<th> @Html.ActionLink("新增", "Create")</th>
+	</tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.project_id)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Group_Num)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Group_Total)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UCL)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CL)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LCL)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Sample)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.is_delete)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.create_time)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.create_user)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-    </tr>
+	<tr>
+		<td>
+			@Html.DisplayFor(modelItem => item.Name)
+		</td>
+		<td>
+			@Html.DisplayFor(modelItem => item.project_Name)
+		</td>
+		<td>
+			@Html.DisplayFor(modelItem => item.Group_Num)
+		</td>
+		<td>
+			@Html.DisplayFor(modelItem => item.Group_Total)
+		</td>
+		<td>
+			@Html.DisplayFor(modelItem => item.UCL)
+		</td>
+		<td>
+			@Html.DisplayFor(modelItem => item.CL)
+		</td>
+		<td>
+			@Html.DisplayFor(modelItem => item.LCL)
+		</td>
+		<td>
+			@Html.DisplayFor(modelItem => item.Sample)
+		</td>
+		<td class="hidden">
+			@Html.DisplayFor(modelItem => item.is_delete)
+		</td>
+		<td>
+			@Html.DisplayFor(modelItem => item.create_time)
+		</td>
+		<td class="hidden">
+			@Html.DisplayFor(modelItem => item.create_user)
+		</td>
+		<td>
+			<!-- @Html.ActionLink("编辑", "Edit", new { id=item.ID }) |-->
+			@Html.ActionLink("查看", "Details", new { id = item.ID }) |
+			@Html.ActionLink("删除", "Delete", new { id = item.ID })
+		</td>
+	</tr>
 }
 
 </table>

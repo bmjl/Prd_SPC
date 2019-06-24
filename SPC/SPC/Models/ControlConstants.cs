@@ -13,7 +13,7 @@ namespace SPC.Models
         [Column(Order = 0)]
         public int ID { get; set; }
 		
-		[Key]
+		
         [Column(Order = 1)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
 		[DisplayName("×éÊı")]

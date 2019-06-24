@@ -27,7 +27,7 @@ namespace SPC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            departments departments = db.departments.Find(id);
+            Departments departments = db.departments.Find(id);
             if (departments == null)
             {
                 return HttpNotFound();
@@ -46,8 +46,10 @@ namespace SPC.Controllers
         // 详细信息，请参阅 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Name,is_delete,create_time")] departments departments)
+        public ActionResult Create([Bind(Include = "ID,Name,is_delete,create_time")] Departments departments)
         {
+
+			departments.create_time = DateTime.Now;
             if (ModelState.IsValid)
             {
                 db.departments.Add(departments);
@@ -65,7 +67,7 @@ namespace SPC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            departments departments = db.departments.Find(id);
+            Departments departments = db.departments.Find(id);
             if (departments == null)
             {
                 return HttpNotFound();
@@ -78,7 +80,7 @@ namespace SPC.Controllers
         // 详细信息，请参阅 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Name,is_delete,create_time")] departments departments)
+        public ActionResult Edit([Bind(Include = "ID,Name,is_delete,create_time")] Departments departments)
         {
             if (ModelState.IsValid)
             {
@@ -96,7 +98,7 @@ namespace SPC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            departments departments = db.departments.Find(id);
+            Departments departments = db.departments.Find(id);
             if (departments == null)
             {
                 return HttpNotFound();
@@ -109,7 +111,7 @@ namespace SPC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            departments departments = db.departments.Find(id);
+            Departments departments = db.departments.Find(id);
             db.departments.Remove(departments);
             db.SaveChanges();
             return RedirectToAction("Index");

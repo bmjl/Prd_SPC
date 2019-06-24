@@ -7,10 +7,10 @@ namespace SPC.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class departments
+    public partial class Departments
     {
         public int ID { get; set; }
-		[DisplayName("名称")]
+		[DisplayName("部门名称")]
 		public string Name { get; set; }
 
         public int? is_delete { get; set; }

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<SPC.Models.departments>
+﻿@model IEnumerable<SPC.Models.Departments>
 
 @{
     ViewBag.Title = "部门列表";
@@ -15,9 +15,10 @@
         <th>
             @Html.DisplayNameFor(model => model.create_time)
         </th>
-        <th><p>
-	@Html.ActionLink("新增", "Create")
-</p></th>
+        <th>
+		@Html.ActionLink("新增", "Create")
+		</th>
+
     </tr>
 
 @foreach (var item in Model) {

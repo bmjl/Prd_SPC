@@ -1,14 +1,9 @@
 ﻿@model IEnumerable<SPC.Models.SchemaViews>
 
 @{
-    ViewBag.Title = "Index";
-}
+    ViewBag.Title = "列表";
+}>
 
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
         <th>
@@ -20,7 +15,7 @@
         <th>
             @Html.DisplayNameFor(model => model.describe)
         </th>
-        <th></th>
+		<th> @Html.ActionLink("Create New", "Create")</th>
     </tr>
 
 @foreach (var item in Model) {
@@ -35,9 +30,9 @@
             @Html.DisplayFor(modelItem => item.describe)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+            @Html.ActionLink("编辑", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("查看", "Details", new { id=item.ID }) |
+            @Html.ActionLink("删除", "Delete", new { id=item.ID })
         </td>
     </tr>
 }

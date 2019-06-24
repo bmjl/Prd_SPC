@@ -141,6 +141,7 @@
     <Compile Include="Controllers\ProjectsController.cs" />
     <Compile Include="Controllers\SamplDatasController.cs" />
     <Compile Include="Controllers\SchemaViewsController.cs" />
+    <Compile Include="Controllers\SelectController.cs" />
     <Compile Include="Controllers\SettingsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -152,6 +153,7 @@
     <Compile Include="Models\Projects.cs" />
     <Compile Include="Models\SamplDatas.cs" />
     <Compile Include="Models\SchemaViews.cs" />
+    <Compile Include="Models\Select.cs" />
     <Compile Include="Models\Settings.cs" />
     <Compile Include="Models\SPCContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -167,6 +169,7 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\layout\layout.js" />
+    <Content Include="Scripts\layout\Select.js" />
     <Content Include="Views\Home\Left.cshtml" />
     <Content Include="Views\ControlConstants\Create.cshtml" />
     <Content Include="Views\ControlConstants\Delete.cshtml" />
@@ -203,6 +206,10 @@
     <Content Include="Views\Settings\Details.cshtml" />
     <Content Include="Views\Settings\Edit.cshtml" />
     <Content Include="Views\Settings\Index.cshtml" />
+    <Content Include="Views\Select\Index.cshtml" />
+    <Content Include="Views\Shared\Select.cshtml" />
+    <Content Include="Views\Shared\modal.cshtml" />
+    <Content Include="Views\Shared\Select2.cshtml" />
     <None Include="_bin_deployableAssemblies\x86\sqlcese40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceqp40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceme40.dll" />

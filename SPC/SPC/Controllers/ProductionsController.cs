@@ -17,7 +17,14 @@ namespace SPC.Controllers
         // GET: Productions
         public ActionResult Index()
         {
-            return View(db.Productions.ToList());
+			var prds = db.Productions.ToList();
+			foreach(var prd in prds)
+			{
+				Departments departments = db.departments.Find(prd.depId);
+				prd.DepName = departments.Name;
+			}
+
+			return View(prds);
         }
 
         // GET: Productions/Details/5
@@ -28,7 +35,9 @@ namespace SPC.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Productions productions = db.Productions.Find(id);
-            if (productions == null)
+			Departments departments = db.departments.Find(productions.depId);
+			productions.DepName = departments.Name;
+			if (productions == null)
             {
                 return HttpNotFound();
             }
@@ -48,7 +57,10 @@ namespace SPC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ID,Name,depId,is_delete,create_time,create_user")] Productions productions)
         {
-            if (ModelState.IsValid)
+			productions.create_time = DateTime.Now;
+			productions.is_delete = 0;
+
+			if (ModelState.IsValid)
             {
                 db.Productions.Add(productions);
                 db.SaveChanges();
@@ -80,7 +92,8 @@ namespace SPC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "ID,Name,depId,is_delete,create_time,create_user")] Productions productions)
         {
-            if (ModelState.IsValid)
+			productions.create_time = DateTime.Now;
+			if (ModelState.IsValid)
             {
                 db.Entry(productions).State = EntityState.Modified;
                 db.SaveChanges();

@@ -12,7 +12,7 @@ namespace SPC.Models
 		{
 		}
 
-		public virtual DbSet<departments> departments { get; set; }
+		public virtual DbSet<Departments> departments { get; set; }
 		public virtual DbSet<Productions> Productions { get; set; }
 		public virtual DbSet<Projects> Projects { get; set; }
 		public virtual DbSet<SamplDatas> SamplDatas { get; set; }
