@@ -280,6 +280,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <None Include="_bin_deployableAssemblies\amd64\Microsoft.VC90.CRT\Microsoft.VC90.CRT.manifest" />
     <None Include="_bin_deployableAssemblies\x86\Microsoft.VC90.CRT\Microsoft.VC90.CRT.manifest" />
+    <Content Include="数据库\20190625.bak" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
