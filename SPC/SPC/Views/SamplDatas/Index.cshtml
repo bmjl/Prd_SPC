@@ -1,57 +1,66 @@
-﻿@model IEnumerable<SPC.Models.SamplDatas>
-
+﻿@model PagedList.IPagedList<SPC.Models.SamplDatas>
+@using PagedList.Mvc
 @{
-    ViewBag.Title = "列表";
+	ViewBag.Title = "列表";
 }
 <table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Set_id)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ArrayIindex)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ArrayNUm)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.is_delete)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.create_time)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.create_user)
-        </th>
-        <th>@Html.ActionLink("新增","Create")</th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Set_id)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ArrayIindex)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ArrayNUm)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.is_delete)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.create_time)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.create_user)
-        </td>
-        <td>
-            @Html.ActionLink("编辑", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("查看", "Details", new { id=item.ID }) |
-            @Html.ActionLink("删除", "Delete", new { id=item.ID })
-        </td>
-    </tr>
-}
-
+	<tr>
+		<th>序号</th>
+		<th>编号</th>
+		<th>
+		设置名称
+		</th>
+		<th>
+			X
+		</th>
+		<th>
+		Y
+		</th>
+		<th>
+			检测数据
+		</th>
+		<th class="hidden">
+			
+		</th>
+		<th>
+			时间
+		</th>
+		<th class="hidden">
+		</th>
+		<th>@Html.ActionLink("新增", "Create")</th>
+	</tr>
+	@{	int pagenum = (Model.PageNumber - 1) * 10;
+		foreach (var item in Model)	{
+		<tr>
+			<td>@(pagenum = 1+ pagenum )</td>
+			<td>@Html.DisplayFor(modelItem => item.SerialNumber)</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Set_Name)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.ArrayX)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.ArrayY)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.ArrayNum)
+			</td>
+			<td class="hidden">
+				@Html.DisplayFor(modelItem => item.is_delete)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.create_time)
+			</td>
+			<td class="hidden">
+				@Html.DisplayFor(modelItem => item.create_user)
+			</td>
+			<td>
+				@Html.ActionLink("编辑", "Edit", new { id = item.ID }) |
+				@Html.ActionLink("查看", "Details", new { id = item.ID }) |
+				@Html.ActionLink("删除", "Delete", new { id = item.ID })
+			</td>
+		</tr>
+			} }
 </table>
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))

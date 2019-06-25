@@ -1,0 +1,103 @@
+﻿
+
+@{
+	ViewBag.Title = "SPC  X-R";
+
+}
+@Styles.Render("~/Content/css")
+@Styles.Render("~/Content/x-r/x-r.css")
+
+<div>
+	<div class="text-center">
+		<h4>X — R 管 制 圖</h4>
+	</div>
+	<table class="table table-bordered " style="margin:10px auto;">
+		<caption>日期：<text>2019-06-18</text></caption>
+		<thead>
+			<tr>
+				<th>規格</th>
+				<th>標準</th>
+				<th>群組數大小</th>
+				<th>管 制</th>
+				<th>X 圖</th>
+				<th>R 圖</th>
+			</tr>
+		</thead>
+		<tr>
+			<td>上限 USL</td>
+			<td>0.90</td>
+			<td>5</td>
+			<td>上限 UCL</td>
+			<td>0.82</td>
+			<td>0.38</td>
+		</tr>
+		<tr>
+			<td>中心限CL</td>
+			<td>0.70</td>
+			<td>總組數</td>
+			<td>中心限CL</td>
+			<td>0.72</td>
+			<td>0.18</td>
+		</tr>
+		<tr>
+			<td>下限 USL</td>
+			<td>0.50</td>
+			<td>25</td>
+			<td>下限 UCL</td>
+			<td>0.61</td>
+			<td>0.00</td>
+		</tr>
+	</table>
+	<div class="div_collapse" style="margin:10px auto;">
+		<h3 class="panel-title">
+			<a data-toggle="collapse" data-parent="#accordion" href="#tableOne">
+				收起
+			</a>
+		</h3>
+	</div>
+	<div id="tableOne" class="panel-collapse collapse in" aria-expanded="true">
+		<div class="panel-body">
+			<table id="parameter" class="table table-bordered" style="margin:10px auto;">
+				<thead>
+					<tr>
+						<th>序号</th>
+						<th>1</th>
+						<th>2</th>
+						<th>3</th>
+						<th>4</th>
+						<th>5</th>
+						<th>ΣＸ</th>
+						<th>Ｘ</th>
+						<th>R</th>
+					</tr>
+				</thead>
+				<tr id='par' class="max_width">
+					<td>1</td>
+					<td><input type="text"></td>
+					<td><input type="text"></td>
+					<td><input type="text"></td>
+					<td><input type="text"></td>
+					<td><input type="text"></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<div class="text-center">
+		<h4>X 管 制 圖</h4>
+	</div>
+	<canvas id="canvasX" width="900" height="300" style="display:block;border:1px solid #aaa;margin:10px auto;">
+		如果浏览器不能正常显示，请更换支持canvas的浏览器
+	</canvas>
+	<div class="text-center">
+		<h4>S 管 制 圖</h4>
+	</div>
+	<canvas id="canvasR" width="900" height="300" style="display:block;border:1px solid #aaa;margin:10px auto;">
+		如果浏览器不能正常显示，请更换支持canvas的浏览器
+	</canvas>
+</div>
+@Scripts.Render("~/Scripts/x-r/x-r.js")
+@Scripts.Render("~/Scripts/x-r/canvas.js")
+

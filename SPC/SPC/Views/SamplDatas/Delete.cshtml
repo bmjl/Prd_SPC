@@ -5,62 +5,69 @@
 }
 <h3>确定要删除此条?</h3>
 <div>
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Set_id)
-        </dt>
+	<dl class="dl-horizontal">
+		<dt>
+			@Html.DisplayNameFor(model => model.Set_id)
+		</dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Set_id)
-        </dd>
+		<dd>
+			@Html.DisplayFor(model => model.Set_id)
+		</dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ArrayIindex)
-        </dt>
+		<dt>
+			@Html.DisplayNameFor(model => model.ArrayX)
+		</dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.ArrayIindex)
-        </dd>
+		<dd>
+			@Html.DisplayFor(model => model.ArrayX)
+		</dd>
+		<dt>
+			@Html.DisplayNameFor(model => model.ArrayY)
+		</dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ArrayNUm)
-        </dt>
+		<dd>
+			@Html.DisplayFor(model => model.ArrayY)
+		</dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.ArrayNUm)
-        </dd>
+		<dt>
+			@Html.DisplayNameFor(model => model.ArrayNum)
+		</dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.is_delete)
-        </dt>
+		<dd>
+			@Html.DisplayFor(model => model.ArrayNum)
+		</dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.is_delete)
-        </dd>
+		<dt>
+			@Html.DisplayNameFor(model => model.is_delete)
+		</dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.create_time)
-        </dt>
+		<dd>
+			@Html.DisplayFor(model => model.is_delete)
+		</dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.create_time)
-        </dd>
+		<dt>
+			@Html.DisplayNameFor(model => model.create_time)
+		</dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.create_user)
-        </dt>
+		<dd>
+			@Html.DisplayFor(model => model.create_time)
+		</dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.create_user)
-        </dd>
+		<dt>
+			@Html.DisplayNameFor(model => model.create_user)
+		</dt>
 
-    </dl>
+		<dd>
+			@Html.DisplayFor(model => model.create_user)
+		</dd>
+
+	</dl>
 
     @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()
 
 	<div class="form-actions no-color">
-		<input type="submit" value="Delete" class="btn btn-default" /> |
+		<input type="submit" value="删除" class="btn btn-default" /> |
 		@Html.ActionLink("返回列表", "Index", null, new { @class = "btn btn-default" })
 	</div>
     }

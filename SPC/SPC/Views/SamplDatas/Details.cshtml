@@ -4,58 +4,66 @@
     ViewBag.Title = "查看";
 }
 <div>
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Set_id)
-        </dt>
+	<dl class="dl-horizontal">
+		<dt>
+			@Html.DisplayNameFor(model => model.Set_id)
+		</dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Set_id)
-        </dd>
+		<dd>
+			@Html.DisplayFor(model => model.Set_id)
+		</dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ArrayIindex)
-        </dt>
+		
+		<dt>
+			@Html.DisplayNameFor(model => model.ArrayX)
+		</dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.ArrayIindex)
-        </dd>
+		<dd>
+			@Html.DisplayFor(model => model.ArrayX)
+		</dd>
+		<dt>
+			@Html.DisplayNameFor(model => model.ArrayY)
+		</dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ArrayNUm)
-        </dt>
+		<dd>
+			@Html.DisplayFor(model => model.ArrayY)
+		</dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.ArrayNUm)
-        </dd>
+		<dt>
+			@Html.DisplayNameFor(model => model.ArrayNum)
+		</dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.is_delete)
-        </dt>
+		<dd>
+			@Html.DisplayFor(model => model.ArrayNum)
+		</dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.is_delete)
-        </dd>
+		<dt>
+			@Html.DisplayNameFor(model => model.is_delete)
+		</dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.create_time)
-        </dt>
+		<dd>
+			@Html.DisplayFor(model => model.is_delete)
+		</dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.create_time)
-        </dd>
+		<dt>
+			@Html.DisplayNameFor(model => model.create_time)
+		</dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.create_user)
-        </dt>
+		<dd>
+			@Html.DisplayFor(model => model.create_time)
+		</dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.create_user)
-        </dd>
+		<dt>
+			@Html.DisplayNameFor(model => model.create_user)
+		</dt>
 
-    </dl>
+		<dd>
+			@Html.DisplayFor(model => model.create_user)
+		</dd>
+
+	</dl>
 </div>
 <p>
-	@Html.ActionLink("编辑", "Edit", new { id = Model.ID }) |
+	@Html.ActionLink("编辑", "编辑", new { id = Model.ID }) |
 	@Html.ActionLink("返回列表", "Index", null, new { @class = "btn btn-default" })
 </p>

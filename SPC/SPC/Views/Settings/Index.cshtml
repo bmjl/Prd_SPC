@@ -13,6 +13,9 @@
 			@Html.DisplayNameFor(model => model.project_Name)
 		</th>
 		<th>
+			@Html.DisplayNameFor(model => model.ViewType)
+		</th>
+		<th>
 			@Html.DisplayNameFor(model => model.Group_Num)
 		</th>
 		<th>
@@ -50,6 +53,7 @@
 		<td>
 			@Html.DisplayFor(modelItem => item.project_Name)
 		</td>
+		<td>@Html.DisplayFor(modelItem => item.ViewType)</td>
 		<td>
 			@Html.DisplayFor(modelItem => item.Group_Num)
 		</td>

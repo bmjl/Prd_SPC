@@ -1,0 +1,11 @@
+﻿body {
+}
+.table_p {
+	width: 100%;
+	max-width: 100%;
+	border: 1px solid #ddd;
+}
+.col-md-9 {
+	padding-right: 10px;
+	 padding-left: 1px; 
+}

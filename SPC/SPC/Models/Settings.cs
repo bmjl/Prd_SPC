@@ -35,5 +35,8 @@ namespace SPC.Models
 		public DateTime? create_time { get; set; }
 
         public int? create_user { get; set; }
-    }
+		[DisplayName("м╪пн")]
+		public string ViewType { get; set; }
+
+	}
 }

@@ -1,24 +1,27 @@
-﻿@model SPC.Models.Select
-
-@{
+﻿@{
 	ViewBag.Title = "选择";
 }
-
+<link href="~/Content/select/select2.css" rel="stylesheet" />
+<style type="text/css">
+	.col-md-9 {
+		padding-right: 10px;
+		padding-left: 1px;
+	}
+</style>
 <div class="form-horizontal">
-	@Html.ValidationSummary(true, "", new { @class = "text-danger" })
 	<div class="form-group">
-		@Html.LabelFor(model => model.DptName, htmlAttributes: new { @class = "control-label col-md-2" })
-		<div class="col-md-10">
-			<select id="dpt" class="form-control">
+		<label class="control-label col-md-3" for="DptName">部门</label>
+		<div class="col-md-9">
+			<select id="dpt2" class="select_data form-control">
 				<option value="0">请选择</option>
 			</select>
 		</div>
 	</div>
 
 	<div class="form-group">
-		@Html.LabelFor(model => model.PrdName, htmlAttributes: new { @class = "control-label col-md-2" })
-		<div class="col-md-10">
-			<select id="prd" class="form-control">
+		<label class="control-label col-md-3" for="PrdName">机别</label>
+		<div class="col-md-9">
+			<select id="prd2" class="select_data form-control">
 				<option value="0">请选择</option>
 			</select>
 		</div>
@@ -26,18 +29,18 @@
 	</div>
 
 	<div class="form-group">
-		@Html.LabelFor(model => model.PjtName, htmlAttributes: new { @class = "control-label col-md-2" })
-		<div class="col-md-10">
-			<select id="pjt" class="form-control">
+		<label class="control-label col-md-3" for="PjtName">项目</label>
+		<div class="col-md-9">
+			<select id="pjt2" class=" select_data form-control">
 				<option value="0">请选择</option>
 			</select>
 		</div>
 	</div>
 
 	<div class="form-group">
-		@Html.LabelFor(model => model.SetName, htmlAttributes: new { @class = "control-label col-md-2" })
-		<div class="col-md-10">
-			<select id="set" class="dpt form-control">
+		<label class="control-label col-md-3" for="SetName">设置</label>
+		<div class="col-md-9">
+			<select id="set2" class="select_data form-control">
 				<option value="0">请选择</option>
 			</select>
 

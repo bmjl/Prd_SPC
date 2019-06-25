@@ -37,5 +37,14 @@ namespace SPC.Models
 		[NotMapped]
 		[DisplayName("类别")]
 		public int Type { get; set; }
+		//1,部门；2，机别；3，项目；4，设置；
+		[NotMapped]
+		[DisplayName("X")]
+		public int X { get; set; }
+
+		[NotMapped]
+		[DisplayName("Y")]
+		public int Y { get; set; }
+
 	}
 }

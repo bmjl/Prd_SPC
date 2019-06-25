@@ -1,0 +1,100 @@
+﻿
+@{
+	ViewBag.Title = "Xs";
+}
+@Styles.Render("~/Content/css")
+@Styles.Render("~/Content/x-s/x-s.css")
+<link rel="stylesheet" type="text/css" href="../../Content/x-s/x-s.css">
+<div>
+	<div class="text-center">
+		<h4>X — S 管 制 圖</h4>
+	</div>
+	<table class="table table-bordered " style="margin:10px auto;">
+		<caption>日期：<text>2019-06-18</text></caption>
+		<thead>
+			<tr>
+				<th>規格</th>
+				<th>標準</th>
+				<th>群組數大小</th>
+				<th>管 制</th>
+				<th>X 圖</th>
+				<th>S 圖</th>
+			</tr>
+		</thead>
+		<tr>
+			<td>上限 USL</td>
+			<td id="ucl"></td>
+			<td id="x"></td>
+			<td>上限 UCL</td>
+			<td>18.633</td>
+			<td>5.469</td>
+		</tr>
+		<tr>
+			<td>中心限CL</td>
+			<td id="cl"></td>
+			<td>總組數</td>
+			<td>中心限CL</td>
+			<td>15.093</td>
+			<td>2.476</td>
+		</tr>
+		<tr>
+			<td>下限 USL</td>
+			<td id="lcl"></td>
+			<td id="y"></td>
+			<td>下限 UCL</td>
+			<td>11.553</td>
+			<td>0.00</td>
+		</tr>
+	</table>
+	<div class="div_collapse" style="margin:10px auto;">
+		<h3 class="panel-title btn btn-default">
+			<a data-toggle="collapse" data-parent="#accordion" href="#tableOne">
+				收起
+			</a>
+		</h3>
+	</div>
+	<div id="tableOne" class="panel-collapse collapse in" aria-expanded="true">
+		<div class="panel-body">
+			<table id="parameter" class="table table-bordered" style="margin:10px auto;">
+				<thead id='_thead'>
+					<tr id='_head'>
+						<th>序号</th>
+						<th>1</th>
+						<th>2</th>
+						<th>3</th>
+						<th>4</th>
+						<th>5</th>
+						<th>ΣＸ</th>
+						<th>Ｘ</th>
+						<th>S</th>
+					</tr>
+				</thead>
+				<tr id='par' class="max_width">
+					<td>1</td>
+					<td><input type="text"></td>
+					<td><input type="text"></td>
+					<td><input type="text"></td>
+					<td><input type="text"></td>
+					<td><input type="text"></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<div class="text-center">
+		<h4>X 管 制 圖</h4>
+	</div>
+	<canvas id="canvasX" width="900" height="300" style="display:block;border:1px solid #aaa;margin:10px auto;">
+		如果浏览器不能正常显示，请更换支持canvas的浏览器
+	</canvas>
+	<div class="text-center">
+		<h4>S 管 制 圖</h4>
+	</div>
+	<canvas id="canvasR" width="900" height="300" style="display:block;border:1px solid #aaa;margin:10px auto;">
+		如果浏览器不能正常显示，请更换支持canvas的浏览器
+	</canvas>
+</div>
+@Scripts.Render("~/Scripts/x-s/x-s.js")
+@Scripts.Render("~/Scripts/x-s/canvas.js")

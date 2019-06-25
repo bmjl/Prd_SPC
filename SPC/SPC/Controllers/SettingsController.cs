@@ -47,7 +47,8 @@ namespace SPC.Controllers
         // GET: Settings/Create
         public ActionResult Create()
         {
-            return View();
+			ViewBag.selList = new SelectList(new String[] { "X-R", "X-S", "X-MR" });
+			return View();
         }
 
         // POST: Settings/Create
@@ -55,7 +56,7 @@ namespace SPC.Controllers
         // 详细信息，请参阅 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,project_id,Group_Num,Group_Total,UCL,CL,LCL,Sample,is_delete,create_time,create_user")] Settings settings)
+        public ActionResult Create([Bind(Include = "ID,Name,project_id,Group_Num,Group_Total,UCL,CL,LCL,Sample,is_delete,create_time,create_user,ViewType")] Settings settings)
         {
 			settings.create_time = DateTime.Now;
 			settings.is_delete = 0;
@@ -89,7 +90,7 @@ namespace SPC.Controllers
         // 详细信息，请参阅 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,project_id,Group_Num,Group_Total,UCL,CL,LCL,Sample,is_delete,create_time,create_user")] Settings settings)
+        public ActionResult Edit([Bind(Include = "ID,Name,project_id,Group_Num,Group_Total,UCL,CL,LCL,Sample,is_delete,create_time,create_user,ViewType")] Settings settings)
         {
             if (ModelState.IsValid)
             {
