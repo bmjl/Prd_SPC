@@ -1,10 +1,16 @@
-﻿$(function() {
-    $(".btn").click(function() {
-        $(this).button('loading').delay(1000).queue(function() {
-            $(this).button('reset');
-            $(this).dequeue();
-        });
-    });
+﻿//所有的和
+var AllSum = 0;
+//所有极差的和
+var AllAvgSum = 0;
+$(function () {
+
+   
+    //$(".btn").click(function() {
+    //    $(this).button('loading').delay(10).queue(function() {
+    //        $(this).button('reset');
+    //        $(this).dequeue();
+    //    });
+    //});
     $(".div_collapse").click(function() {
         var s = $(this).attr("state");
         if (s == 1) {
@@ -32,7 +38,7 @@
             $("#lcl").text(LCL);
             $("#x").text(x);
             $("#y").text(y);
-            //获取数值
+           
            
             //初始化，定下有多少行
             for (var i = 0; i < y; i++) {
@@ -73,7 +79,8 @@
                         html += '<tr class="max_width">';
                         html += '<td> ' + ii + '</td >';
                         for (var j = 0; j < arr_xs[i].length; j++) {
-                            html += '<td><input type="text" value="' + fixed2(arr_xs[i][j]) + '"></td>';
+                            //html += '<td><input type="text" value="' + fixed2(arr_xs[i][j]) + '"></td>';
+                            html += '<td>' + fixed2(arr_xs[i][j]) + '</td>';
                             xs[j] = arr_xs[i][j];
                         }
                         html += _js(xs);
@@ -83,9 +90,41 @@
                         $("#par").hide();
                     }
 
-                    //画图
-                    X();
-                    S();
+                    //获取常数值数值
+                    $.get("/DrawView/GetControlConstants?GroupNum=" + x + "", function (data) {
+                        if (data != null) {
+                            //X 上中下
+                            //上：所有的平均数 + A3(常数）*极差的平均数                        
+                            var ucl_num = AllSum / y + (data.A3) * (AllAvgSum / y);
+                            $("#ucl_num").html(fixed3(ucl_num));
+                            //中
+                            var cl_num = AllSum / y;
+                            $("#cl_num").html(fixed3(cl_num));
+                            //下
+                            var lcl_num = AllSum / y - (data.A3) * (AllAvgSum / y);
+                            $("#lcl_num").html(fixed3(lcl_num));
+
+                            //S 上中下
+                            //上
+                            var s_ucl_num = (data.B4) * (AllAvgSum / y);
+                            $("#s_ucl_num").html(fixed3(s_ucl_num));
+                            //中
+                            var s_cl_num = AllAvgSum / y;
+                            $("#s_cl_num").html(fixed3(s_cl_num));
+                            //下
+                            var s_lcl_num = (data.B3) * (AllAvgSum / y);
+                            $("#s_lcl_num").html(fixed3(s_lcl_num));
+                            //画图
+                            X();
+                            S();
+                        }
+                    });
+
+
+
+
+
+                   
                 }
             });
         }
@@ -129,16 +168,22 @@ function _js(arr) {
     }
     // var R = Math.max.apply(null, arr) - Math.min.apply(null, arr);
     var X = sum / arr.length;
+   
 
 
     var S = 0;
     S = Math.sqrt((sum_all - arr.length * X * X) / (arr.length - 1));
+    AllSum += X;
+    AllAvgSum += S;
     var html = '<td class="sum">' + sum.toFixed(2) + '</td><td class="X">' + X.toFixed(2) + '</td><td class="S">' + S.toFixed(2) + '</td>';
     return html;
 }
 
 function fixed2(num) {
     return num.toFixed(2);
+}
+function fixed3(num) {
+    return num.toFixed(3);
 }
 
 //paraName 等找参数的名称

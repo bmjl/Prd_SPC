@@ -31,8 +31,8 @@ function S() {
     });
     var canvasR = $("#canvasR")[0];
     var contextR = canvasR.getContext('2d');
-
-    var Max = 5.00, //最大值
+    var num = $("#s_ucl_num").html();
+    var Max = Math.ceil(num); //5.00, //最大值
         interval = 1.00, //间隔
         Min = 0;
     var ii = 6,
