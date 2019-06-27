@@ -1,7 +1,7 @@
-﻿$(function() {
-    X();
-    S();
-});
+﻿//$(function() {
+//    X();
+//    S();
+//});
 
 function X() {
     //1,获取值
@@ -48,7 +48,7 @@ function Draw(cxt, Max, interval, arr1, ii, jj, min, width, hight, type) {
     //画线
     var y1, y2;
     var x1 = 50,
-        x2 = jj * width + 10,
+        x2 = (jj-1) * width + x1,
         yy = 30;
 
     for (var i = 0; i < ii; i++) {

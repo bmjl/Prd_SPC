@@ -13,12 +13,13 @@ namespace SPC.Controllers
 		// GET: DrawView
 		public ActionResult XR(int SetId,string SN)
         {
-			Settings settings = db.Settings.Find(SetId);
-			ViewBag.setdata = settings;
-			ControlConstants control = db.ControlConstants.Where(m => m.GroupNum == settings.Group_Num).First();
-			ViewBag.ccdata = control;
-			List<SamplDatas> sampls = db.SamplDatas.Where(m => m.SerialNumber == SN).OrderBy(m => m.SerialNumber).ThenBy(n => n.Set_id).ThenBy(m => m.ArrayX).ThenBy(m => m.ArrayY).ToList();
-			return View(sampls);
+			//Settings settings = db.Settings.Find(SetId);
+			//ViewBag.setdata = settings;
+			//ControlConstants control = db.ControlConstants.Where(m => m.GroupNum == settings.Group_Num).First();
+			//ViewBag.ccdata = control;
+			//List<SamplDatas> sampls = db.SamplDatas.Where(m => m.SerialNumber == SN).OrderBy(m => m.SerialNumber).ThenBy(n => n.Set_id).ThenBy(m => m.ArrayX).ThenBy(m => m.ArrayY).ToList();
+			//return View(sampls);
+			return View();
 		}
 		public ActionResult XS(int SetId, string SN)
 		{
@@ -32,12 +33,13 @@ namespace SPC.Controllers
 		}
 		public ActionResult XMR(int SetId, string SN)
 		{
-			Settings settings = db.Settings.Find(SetId);
-			ViewBag.setdata = settings;
-			ControlConstants control = db.ControlConstants.Where(m => m.GroupNum == settings.Group_Num).First();
-			ViewBag.ccdata = control;
-			List<SamplDatas> sampls = db.SamplDatas.Where(m => m.SerialNumber == SN).OrderBy(m => m.SerialNumber).ThenBy(n => n.Set_id).ThenBy(m => m.ArrayX).ThenBy(m => m.ArrayY).ToList();
-			return View(sampls);
+			//Settings settings = db.Settings.Find(SetId);
+			//ViewBag.setdata = settings;
+			//ControlConstants control = db.ControlConstants.Where(m => m.GroupNum == settings.Group_Num).First();
+			//ViewBag.ccdata = control;
+			//List<SamplDatas> sampls = db.SamplDatas.Where(m => m.SerialNumber == SN).OrderBy(m => m.SerialNumber).ThenBy(n => n.Set_id).ThenBy(m => m.ArrayX).ThenBy(m => m.ArrayY).ToList();
+			//return View(sampls);
+			return View();
 		}
 		//获取设置信息
 		[HttpGet]
@@ -57,6 +59,13 @@ namespace SPC.Controllers
 		[HttpGet]
 		public ActionResult GetControlConstants(int GroupNum)
 		{
+			if (GroupNum == 1)
+			{
+				GroupNum = 2;
+			}else if (GroupNum > 10)
+			{
+				GroupNum = 10;//还没有输入大于10组的常数
+			}
 			ControlConstants control = db.ControlConstants.Where(m => m.GroupNum == GroupNum).First();
 			return Json(control, JsonRequestBehavior.AllowGet);
 		}
